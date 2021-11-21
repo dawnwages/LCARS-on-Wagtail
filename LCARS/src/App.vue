@@ -16,7 +16,11 @@
       </div>
       <div class="sidebar-top">
         <div class="sidebar-block" v-on:click="enterFullscreen">{{displayLcarsLabel ? lcarsLabel : numbers[0]}}</div>
-        <div class="sidebar-block">{{numbers[1]}}</div>
+        <div class="sidebar-block" @click="togglePostView">
+          View Posts
+          <br/>
+          {{numbers[1]}}
+        </div>
       </div>
       <div class="sidebar-bottom">
         <div class="sidebar-block">{{numbers[2]}}</div>
@@ -42,7 +46,8 @@
         </div>
       </div>
       <div class="main-content">
-        <StarChart :type="starChartType" />
+        <StarChart :type="starChartType" v-if="chartOrPostType === 'chart'"/>
+        <CoreList v-if="chartOrPostType === 'post'"/>
       </div>
       <footer>
         <LCARSBar align="right" :color-scheme="titleType">
@@ -59,8 +64,11 @@ import LCARSButton from './LCARSButton.vue'
 import LCARSBar from './LCARSBar.vue'
 import NumbersTable from './NumbersTable.vue'
 import StarChart from './StarChart.vue'
+import CoreList from './CoreList.vue'
 import { makeRandomLetters, makeRandomNumber, pickRandom } from './utils'
 import { initSounds, sounds } from './sounds'
+
+import DataService from "./services/DataService"
 
 /**
  * Makes labels for LCARS UI.
@@ -113,6 +121,7 @@ function makeLCARSLabel () {
 }
 
 export default {
+  name: 'core-list',
   data() {
     const sidebarLabelType = Math.ceil(Math.random() * 5)
     const appendageType = Math.random()
@@ -155,7 +164,8 @@ export default {
         return makeLabels(sidebarLabelType)
       }),
       colorScheme: Math.random() > 0.75 ? 2 : 1,
-      starChartType: Math.random() > 0.5 ? 'nav' : 'planet'
+      starChartType: Math.random() > 0.5 ? 'nav' : 'planet',
+      chartOrPostType: 'chart',
     }
   },
   computed: {
@@ -172,11 +182,19 @@ export default {
     LCARSButton,
     DividerContent,
     NumbersTable,
-    StarChart
+    StarChart,
+    CoreList
   },
   methods: {
     incrementNumberSequence() {
       this.numberSequence++
+    },
+    togglePostView(event){
+      if (this.chartOrPostType === 'chart') {
+        this.chartOrPostType = 'post'
+      } else {
+        this.chartOrPostType = 'chart'
+      }
     },
     enterFullscreen() {
       if (document.fullscreenEnabled) {
@@ -210,7 +228,6 @@ export default {
   },
   mounted() {
     initSounds()
-
     window.addEventListener('lcars:update_numbers_table', this.incrementNumberSequence)
   },
   beforeUnmount() {
@@ -629,5 +646,9 @@ html, body {
 /* hack */
 .screen.XS:not(.SM) .label-text {
   line-height: 47px;
+}
+
+.hidden {
+  display: none;
 }
 </style>

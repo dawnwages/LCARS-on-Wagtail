@@ -193,6 +193,18 @@ export default {
     flex-basis: 1em;
   }
 
+  .title-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* This allows content to disappear responsively */
+    overflow: hidden; /* This allows content to disappear responsively */
+    flex-basis: 1em;
+  }
+
+  .title-row.highlighted .numbers-cell {
+    color: var(--lcars-color-a8);
+  }
+
   .numbers-row.hidden {
     opacity: 0;
   }
