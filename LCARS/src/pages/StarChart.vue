@@ -78,11 +78,11 @@ import {
   getRandomRange,
   getRandomInt,
   throttle
-} from './utils'
-import ForwardScanner from './ForwardScanner.vue'
-import InspectBracket from './InspectBracket.vue'
-import StarCoords from './StarCoords.vue'
-import stars from './star-systems.json'
+} from '../utils'
+import ForwardScanner from '../common/ForwardScanner.vue'
+import InspectBracket from '../common/InspectBracket.vue'
+import StarCoords from '../common/StarCoords.vue'
+import stars from '../assets/star-systems.json'
 
 const COLLISION_BUFFER = 10
 

@@ -17,7 +17,7 @@
 </style>
 
 <script>
-import { makeRandomNumber } from './utils'
+import { makeRandomNumber } from '../utils'
 
 const UPDATE_INTERVAL = 200
 

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { makeRandomLetters, makeRandomNumber, pickRandom, getRandomInt } from './utils'
+import { makeRandomLetters, makeRandomNumber, pickRandom, getRandomInt } from '../utils'
 
 // Give it plenty of columns on wide monitors
 const HARDCODED_NUMBER_OF_COLUMNS = 18 * 3
@@ -175,7 +175,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .numbers {
     display: flex;
     flex-direction: column;

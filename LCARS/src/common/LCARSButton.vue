@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import { makeRandomNumber } from './utils'
-import { sounds } from './sounds'
+import { makeRandomNumber } from '../utils'
+import { sounds } from '../assets/sounds'
 
 export default {
   name: 'lcars-button',

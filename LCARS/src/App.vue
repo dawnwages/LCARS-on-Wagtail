@@ -1,4 +1,4 @@
-<!-- Note: resize observer contentRect.width does NOT include padding! 
+!-- Note: resize observer contentRect.width does NOT include padding!
     Unfortunately this means that breakpoints need to manually account for
     CSS padding -->
 <template>
@@ -16,7 +16,7 @@
       </div>
       <div class="sidebar-top">
         <div class="sidebar-block" v-on:click="enterFullscreen">{{displayLcarsLabel ? lcarsLabel : numbers[0]}}</div>
-        <div class="sidebar-block" @click="togglePostView">
+        <div class="sidebar-block" @click="e => togglePostView(e)">
           View Posts
           <br/>
           {{numbers[1]}}
@@ -47,7 +47,7 @@
       </div>
       <div class="main-content">
         <StarChart :type="starChartType" v-if="chartOrPostType === 'chart'"/>
-        <CoreList v-if="chartOrPostType === 'post'"/>
+        <CoreList v-if="chartOrPostType !== 'chart'"/>
       </div>
       <footer>
         <LCARSBar align="right" :color-scheme="titleType">
@@ -59,14 +59,14 @@
 </template>
 
 <script>
-import DividerContent from './DividerContent.vue'
-import LCARSButton from './LCARSButton.vue'
-import LCARSBar from './LCARSBar.vue'
-import NumbersTable from './NumbersTable.vue'
-import StarChart from './StarChart.vue'
-import CoreList from './CoreList.vue'
+import DividerContent from './common/DividerContent.vue'
+import LCARSButton from './common/LCARSButton.vue'
+import LCARSBar from './common/LCARSBar.vue'
+import NumbersTable from './common/NumbersTable.vue'
+import StarChart from './pages/StarChart.vue'
+import CoreList from './pages/CoreList.vue'
 import { makeRandomLetters, makeRandomNumber, pickRandom } from './utils'
-import { initSounds, sounds } from './sounds'
+import { initSounds, sounds } from './assets/sounds'
 
 import DataService from "./services/DataService"
 
@@ -190,6 +190,7 @@ export default {
       this.numberSequence++
     },
     togglePostView(event){
+      console.log(event)
       if (this.chartOrPostType === 'chart') {
         this.chartOrPostType = 'post'
       } else {
@@ -315,6 +316,22 @@ html, body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 11px;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--lcars-color-a1) var(--lcars-color-black);
+}
+body::-webkit-scrollbar-track {
+  background: var(--lcars-color-black);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--lcars-color-a1) ;
+  border-radius: 6px;
+  border: 3px solid var(--lcars-color-black);
 }
 
 .screen {
@@ -628,6 +645,12 @@ html, body {
 .screen.XL .buttons-area > :nth-child(5),
 .screen.XL .buttons-area > :nth-child(6) {
   display: inherit;
+}
+
+div.main-content > div.list-post {
+  max-height: 60vh;
+  overflow-y: scroll;
+  padding-right: 1rem;
 }
 
 .main-content {
