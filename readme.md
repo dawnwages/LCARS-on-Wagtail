@@ -77,7 +77,7 @@ Separated between frontend `LCARS` and backend `wagtail`. `Django Rest Framework
 <hr>
 
 Check me out on Twitter [@dawnwagessays](https://twitter.com/dawnwagessays)
-My website: [dawnwages.info](dawnwages.info)
-Blog: [glittertech.dev](glittertech.dev)
+My website: [dawnwages.info](https://dawnwages.info)
+Blog: [glittertech.dev](https://glittertech.dev)
 
 Shout out to Lou Huang [@saikofish](https://twitter.com/saikofish) for the UI!
