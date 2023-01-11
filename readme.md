@@ -9,7 +9,7 @@ This is a fun example of what can be built with a custom CMS and Wagtail Blocks 
 
 In the Star Trek fictional universe set in the mid-24th Century, LCARS (Library Computer Access/Retrieval System) is an OS used by the United Federation of Planets on their starfleet vessels, starbases and space stations. Created by scenic art supervisor Michael Okuda, the flurry of activity that goes on all across the screens in The Star Trek: Next Generation, Star Trek: Deep Space Nine and Star Trek: Voyager and Star Trek: Picard has captured the hearts of fans all over.
 
-[Wagtail]('https://docs.wagtail.io/en/stable/') is an OS python CMS (Content Management System) built on Django. To learn more about some of the capabilities of Wagtail, check out [Whats New in Wagtail 5](https://www.youtube.com/watch?v=ONI0Dfe5CU4), announcing the recent [2.15 LTS release](https://docs.wagtail.io/en/stable/releases/2.15.html) [2.15.1 patch](https://docs.wagtail.io/en/stable/releases/2.15.1.html). The backend of this application is built on Wagtail.
+[Wagtail]('https://docs.wagtail.io/en/stable/') is an OS python CMS (Content Management System) built on Django. To learn more about some of the capabilities of Wagtail, check out [Whats New in Wagtail 5](https://www.youtube.com/watch?v=ONI0Dfe5CU4), announcing the recent [4.1 LTS release](https://docs.wagtail.io/en/stable/releases/4.1.html) [4.1.1 patch](https://docs.wagtail.io/en/stable/releases/2.1.1.html). The backend of this application is built on Wagtail.
 
 **Out of the box Wagtail Features:**
 - Admin, Auth + Django's strong approach to security
