@@ -22,6 +22,11 @@
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
+        
+        {# Wagtail 4.0 upgrade #}
+        {% if request.in_preview_panel %}
+            <base target="_blank">
+        {% endif %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">

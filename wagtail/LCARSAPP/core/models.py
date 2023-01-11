@@ -41,7 +41,7 @@ class CorePage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('date'),
         FieldPanel('intro'),
-        StreamFieldPanel('body')
+        FieldPanel('body')
     ]
 
     api_fields = [
