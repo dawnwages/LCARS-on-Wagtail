@@ -1,6 +1,6 @@
 from django.utils.html import escape
-from wagtail.core import hooks
-from wagtail.core.rich_text import LinkHandler
+from wagtail import hooks
+from wagtail.rich_text import LinkHandler
 
 class NoFollowExternalLinkHandler(LinkHandler):
     identifier = 'external'
