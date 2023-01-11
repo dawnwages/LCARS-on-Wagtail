@@ -58,7 +58,7 @@ Separated between frontend `LCARS` and backend `wagtail`. `Django Rest Framework
 
 `npm run start` << will run on port 8080 without args
 
-### Backend - Headless Wagtail CMS 2.15 (LTS)
+### Backend - Headless Wagtail CMS 4.1 (LTS)
 `cd LCARSAPP`
 
 `pip install --upgrade pip`
@@ -76,8 +76,9 @@ Separated between frontend `LCARS` and backend `wagtail`. `Django Rest Framework
 # Credits
 <hr>
 
-Check me out on Twitter [@dawnwagessays](https://twitter.com/dawnwagessays)
+Check me out on Twitter [@BajoranEngineer](https://twitter.com/BajoranEngineer)
+Masto: [@fly00gemini8712@mastodon.online](https://mastodon.online/@fly00gemini8712)
 My website: [dawnwages.info](https://dawnwages.info)
-Blog: [glittertech.dev](https://glittertech.dev)
+Blog: [glittertech.dev](https://dawnwages.info/BajoranEngineer)
 
 Shout out to Lou Huang [@saikofish](https://twitter.com/saikofish) for the UI!
