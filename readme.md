@@ -27,9 +27,9 @@ In the Star Trek fictional universe set in the mid-24th Century, LCARS (Library 
 
 - snowpack
 - Vue 3.1
-- Python 3.8
-- Wagtail 2.15.1
-- Django 3.3
+- Python 3.11
+- Wagtail 4.1.1
+- Django 4.0
 
 Separated between frontend `LCARS` and backend `wagtail`. `Django Rest Framework` handles the API routes `wagtail/LCARSAPP/api.py` `wagtail/LCARSAPP/urls.py`. To learn more about Vue + Wagtail check out: [Headless Wagtail Demo](https://gist.github.com/tomdyson/abf1e973db4dcd50b388816f8c20adb0). The frontend vue application accesses this in `LCARS/http-common.js` and `LCARS/src/services/DataService.js` with axios.
 
