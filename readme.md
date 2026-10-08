@@ -9,7 +9,7 @@ This is a fun example of what can be built with a custom CMS and Wagtail Blocks 
 
 In the Star Trek fictional universe set in the mid-24th Century, LCARS (Library Computer Access/Retrieval System) is an OS used by the United Federation of Planets on their starfleet vessels, starbases and space stations. Created by scenic art supervisor Michael Okuda, the flurry of activity that goes on all across the screens in The Star Trek: Next Generation, Star Trek: Deep Space Nine and Star Trek: Voyager and Star Trek: Picard has captured the hearts of fans all over.
 
-[Wagtail]('https://docs.wagtail.io/en/stable/') is an OS python CMS (Content Management System) built on Django. To learn more about some of the capabilities of Wagtail, check out [Whats New in Wagtail 5](https://www.youtube.com/watch?v=ONI0Dfe5CU4), announcing the recent [4.1 LTS release](https://docs.wagtail.io/en/stable/releases/4.1.html) [4.1.1 patch](https://docs.wagtail.io/en/stable/releases/2.1.1.html). The backend of this application is built on Wagtail.
+[Wagtail]('https://docs.wagtail.io/en/stable/') is an OS python CMS (Content Management System) built on Django. See the [Wagtail 8.0 release notes](https://docs.wagtail.org/en/stable/releases/8.0.html) for what's new. The backend of this application is built on Wagtail.
 
 **Out of the box Wagtail Features:**
 - Admin, Auth + Django's strong approach to security
@@ -20,18 +20,18 @@ In the Star Trek fictional universe set in the mid-24th Century, LCARS (Library 
 <hr>
 
 - issues: [https://github.com/dawnwages/LCARS-on-Wagtail/issues]('https://github.com/dawnwages/LCARS-on-Wagtail/issues')
-- testing: TBD
+- testing: `uv run python manage.py test` (from `wagtail/LCARSAPP`)
 - coverage: TBD
 
 ## This Project
 
-- snowpack
-- Vue 3.1
-- Python 3.11
-- Wagtail 4.1.1
-- Django 4.0
+- Vite 8
+- Vue 3.5
+- Python 3.14
+- Wagtail 8.0
+- Django 6.1
 
-Separated between frontend `LCARS` and backend `wagtail`. `Django Rest Framework` handles the API routes `wagtail/LCARSAPP/api.py` `wagtail/LCARSAPP/urls.py`. To learn more about Vue + Wagtail check out: [Headless Wagtail Demo](https://gist.github.com/tomdyson/abf1e973db4dcd50b388816f8c20adb0). The frontend vue application accesses this in `LCARS/http-common.js` and `LCARS/src/services/DataService.js` with axios.
+Separated between frontend `LCARS` and backend `wagtail`. `Django Rest Framework` handles the API routes `wagtail/LCARSAPP/api.py` `wagtail/LCARSAPP/urls.py`. To learn more about Vue + Wagtail check out: [Headless Wagtail Demo](https://gist.github.com/tomdyson/abf1e973db4dcd50b388816f8c20adb0). The frontend vue application accesses this in `LCARS/src/http-common.js` and `LCARS/src/services/DataService.js` with axios.
 
 
 ### Features
@@ -52,24 +52,37 @@ Separated between frontend `LCARS` and backend `wagtail`. `Django Rest Framework
 ## Installation
 <hr>
 
-### Frontend - Vue 3.1
+### Frontend - Vue 3.5 + Vite
+
+`cd LCARS`
 
 `npm i`
 
-`npm run start` << will run on port 8080 without args
+`npm start` << will run on port 8080 (the origin the backend's CORS settings allow)
 
-### Backend - Headless Wagtail CMS 4.1 (LTS)
-`cd LCARSAPP`
+`npm run build` << production build in `LCARS/dist/`
 
-`pip install --upgrade pip`
+### Backend - Headless Wagtail CMS 8.0
+`cd wagtail/LCARSAPP`
 
-`pip install -r requirements.txt`
+`uv venv`
 
-`./manage.py migrate`
+`uv pip install -r requirements.txt`
 
-`./manage.py createsuperuser`
+`uv run python manage.py migrate`
 
-`./manage.py runserver` << will run on port 8000 without args
+`uv run python manage.py createsuperuser`
+
+`uv run python manage.py runserver` << will run on port 8000 without args
+
+### Developer path
+
+This project uses [uv](https://docs.astral.sh/uv/) for Python:
+
+- Python is installed and managed by uv, pinned in `wagtail/LCARSAPP/.python-version` (3.14). Don't use the macOS system `python3` or Homebrew Python.
+- One virtual environment per project, `wagtail/LCARSAPP/.venv`, created with `uv venv`.
+- Top-level packages are listed in `requirements.in`; pin them in `requirements.txt` with `uv pip compile requirements.in -o requirements.txt` (add `--upgrade` to move to the latest versions), then install with `uv pip sync requirements.txt`. uv environments have no `pip`, so "No module named pip" is expected.
+- Run commands with `uv run ...`, or after `source .venv/bin/activate`.
 
 ![screen shot of LCARS APP](example_screenshot.png)
 

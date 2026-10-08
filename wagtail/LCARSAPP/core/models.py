@@ -3,10 +3,9 @@ from django.db import models
 from wagtail.models import Page
 from wagtail.fields import RichTextField, StreamField
 from wagtail import blocks
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.panels import FieldPanel
 from wagtail.api import APIField
 from wagtail.images.blocks import ImageChooserBlock as DefaultImageChooserBlock
-from wagtail.images.api.fields import ImageRenditionField
 
 
 class ImageChooserBlock(DefaultImageChooserBlock):
@@ -36,7 +35,7 @@ class CorePage(Page):
         ("paragraph", blocks.RichTextBlock(icon="pilcrow", features=['h2', 'h3', 'h4', 'h5', 'h6', 'bold', 'italic', 'link',
                               'ol', 'ul', 'document-link', 'embed', 'code', 'blockquote'])),
         ("image", ImageChooserBlock(icon="image")),
-    ])
+    ], use_json_field=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('date'),
@@ -48,8 +47,6 @@ class CorePage(Page):
         APIField('date'),
         APIField('intro'),
         APIField('body'),
-        APIField('image'),
-        APIField('image_thumbnail', serializer=ImageRenditionField('fill-100x100', source='image')),
     ]
 
 

@@ -1,17 +1,19 @@
 {
+  "name": "lcars",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "start": "snowpack dev",
-    "build": "snowpack build",
-    "test": "echo \"Vue 3.0 test support is still in progress.\" && exit 1"
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@snowpack/plugin-vue": "2.6.2",
-    "axios": "0.24.0",
-    "bigint-polyfill": "0.1.0",
-    "howler": "2.2.3",
-    "vue": "3.1.4"
+    "axios": "^1.20.0",
+    "howler": "^2.2.4",
+    "vue": "^3.5.43"
   },
   "devDependencies": {
-    "snowpack": "3.8.2"
+    "@vitejs/plugin-vue": "^6.0.9",
+    "vite": "^8.3.3"
   }
 }

@@ -77,8 +77,8 @@ import {
   getRandomInt,
   throttle
 } from '../utils'
-import CoreHeading from '../common/components/CoreHeading'
-import CoreImage from '../common/components/CoreImage'
+import CoreHeading from '../common/components/CoreHeading.vue'
+import CoreImage from '../common/components/CoreImage.vue'
 import stars from '../assets/star-systems.json'
 import DataService from "../services/DataService";
 

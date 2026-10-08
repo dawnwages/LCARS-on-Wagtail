@@ -91,6 +91,8 @@ function drawGalacticNoise (canvas) {
   // https://github.com/josephg/noisejs
   /* global noise */
   const rect = canvas.getBoundingClientRect()
+  // Nothing to draw while the container has no size (e.g. not laid out yet)
+  if (!rect.width || !rect.height) return
 
   canvas.width = rect.width
   canvas.height = rect.height

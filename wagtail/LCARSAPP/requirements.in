@@ -1,0 +1,6 @@
+# Top-level dependencies. Regenerate requirements.txt with:
+#   uv pip compile requirements.in -o requirements.txt
+wagtail>=8.0,<8.1
+Django>=6.1,<6.2
+djangorestframework>=3.18
+django-cors-headers>=4.9

@@ -1,9 +1,0 @@
-{
-  "mount": {
-    "public": "/",
-    "src": "/dist"
-  },
-  "plugins": [
-    "@snowpack/plugin-vue"
-  ]
-}
